@@ -53,7 +53,7 @@ run_tests() {
 # remove text that can change from run to run, or from system to system.
 sanitize_odin_test_output() {
     gawk -v pwd="${PWD}/" '
-        /To run only the failed test,/ {exit}
+        /To run only the failed tests?,/ {exit}
         /Finished [[:digit:]]+ tests? in / { sub(/ in [[:digit:].]+.s/, "") }
         {
             gsub(pwd, "") # trim full paths from filenames
